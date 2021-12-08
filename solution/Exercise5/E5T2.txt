@@ -10,11 +10,15 @@ are evident from the IaC code before the infrastructure is created in AWS.  Chec
 nice feature that you can also create custom policies so your organization can enforce its
 standards using the same process.
 
+Example Vulnerability:
+CKV_AWS_5 AWS::Elasticsearch::Domain  	Ensure all data stored in the Elasticsearch is securely encrypted at rest
+
 2) AMI/Container Vulnerability Scanning
 AMIN/Container scanning is to check base container images prior to deployment for vulnerabilities
 and compliance checks.  One product in this space is SysDig (https://sysdig.com/products/secure/)
-which provides a suite of products for scanning container images.  The types of vulnerabilites 
-that you are looking for in this stage are CVE indexed vulnerabilities like:
+which provides a suite of products for scanning container images.  
+
+Example Vulnerability:
 CVE-2019-20367: nlist.c in libbsd before 0.10.0 has an out-of-bounds read during a comparison for a symbol name from the string table (strtab).
 The general solution for this type of vulnerability is update the image or the packages on
 the image to the latest version.
@@ -31,3 +35,6 @@ in the operating environment, such as unpatched EC2 instances and intrusion moni
 Qualys could be viable choice to cover the 2nd question as well.  Note, for this type of 
 vulnerability scanning, it should be operating continously and not just as part of a CI/CD 
 pipeline.
+
+Example Vulnerability:
+CIS AWS Benchmark Ensure multifactor authentication (MFA) is enabled for all IAM users
